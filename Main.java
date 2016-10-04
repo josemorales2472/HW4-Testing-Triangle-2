@@ -8,51 +8,69 @@ public class Main {
         Scanner kb = new Scanner(System.in);
         String newLine = System.getProperty("line.separator");
         double sA, sB, sC; //sides of the triangle
+        String sideA=" ", sideB, sideC;
 
         //Loop that oversees all game
         do {
-            String sideA, sideB, sideC;
+
             //Loop that takes care of the input being valid
             do {
                 //Loop that validates input A
                 do {
                     System.out.print("Enter the first side of your triangle: ");
                     sideA = kb.nextLine();
-                    sA = Double.valueOf(sideA);
-                    if ((sideA.substring(0).matches("^[0-9]+(\\.[0-9]{1,2})?$")) && (sA > 0)) {
-                        pass = true;    
-
-                    } else {
+                    if ((sideA.substring(0).matches("^[0-9]+(\\.[0-9]{1,2})?$"))) { //regex to validate input
+                        sA = Double.valueOf(sideA);
+                        if(sA>0) { //making sure input is not 0
+                            pass = true;
+                        }else{
+                            System.out.print("Error, enter valid input." + newLine);
+                            pass=false;
+                        }
+                    }else {
                         System.out.print("Error, enter valid input." + newLine);
                         pass = false;
                     }
+
                 } while (!pass);
+                sA = Double.valueOf(sideA);
                 //Loop that validates input B
                 do {
-                    pass = true;
                     System.out.print("Enter the second side of your triangle: ");
                     sideB = kb.nextLine();
-                    sB = Double.valueOf(sideB);
-                    if ((sideB.substring(0).matches("^[0-9]+(\\.[0-9]{1,2})?$")) && (sB > 0)) {
-                        pass = true;
+
+                    if (sideB.substring(0).matches("^[0-9]+(\\.[0-9]{1,2})?$")) {
+                        sB = Double.valueOf(sideB);
+                        if(sB>0){
+                            pass=true;
+                        }else {
+                            System.out.print("Error, enter valid input." + newLine);
+                            pass = false;
+                        }
                     } else {
                         System.out.print("Error, enter valid input." + newLine);
                         pass = false;
                     }
                 } while (!pass);
+                sB = Double.valueOf(sideB);
                 //Loop that validates input C
                 do {
-                    pass = true;
                     System.out.print("Enter the third side of your triangle: ");
                     sideC = kb.nextLine();
-                    sC = Double.valueOf(sideC);
-                    if ((sideC.substring(0).matches("^[0-9]+(\\.[0-9]{1,2})?$")) && (sC > 0)) {
-                        pass = true;
+                    if (sideC.substring(0).matches("^[0-9]+(\\.[0-9]{1,2})?$"))  {
+                        sC = Double.valueOf(sideC);
+                        if(sC>0){
+                            pass=true;
+                        }else{
+                            System.out.print("Error, enter valid input." + newLine);
+                            pass = false;
+                        }
                     } else {
                         System.out.print("Error, enter valid input." + newLine);
                         pass = false;
                     }
                 } while (!pass);
+                sC = Double.valueOf(sideC);
 
                 triangle p = new triangle();
                 inputredo = p.NotATriangle(sA, sB, sC);
