@@ -28,11 +28,14 @@ public class triangle {
 
             if(sideA == sideB && sideA == sideC && sideB==sideC) {
                 System.out.print("This is an equilateral triangle. Thank you for our using our program.");
+                System.out.println();
             }
             else if((sideA==sideB && sideB!=sideC)||(sideA==sideC&& sideB!= sideA)||(sideB==sideC && sideA!=sideB) ){
                 System.out.print("This is an isosceles triangle. Thank you for our using our program.");
+                System.out.println();
             }
             else {System.out.print("This is an scalene triangle. Thank you for our using our program.");}
+            System.out.println();
         }
 }
 
